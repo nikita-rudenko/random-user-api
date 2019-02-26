@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
 import './App.css';
-import data from './data';
+import { users } from './data';
 import SearchBar from './components/SearchBar/SearchBar';
 import UserList from './components/UserList/UserList';
 
 class App extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			data: users.results
+		};
+	}
 	render() {
 		return (
 			<>
 				<SearchBar />
-				<UserList />
+				<section>
+					<UserList data={this.state.data} />
+				</section>
 			</>
 		);
 	}
