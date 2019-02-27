@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './UserList.css';
-import User from '../User/User';
+import User from './User';
+import Header from './Header';
 
 export default class UserList extends Component {
 	constructor(props) {
@@ -13,14 +13,14 @@ export default class UserList extends Component {
 		const results = this.props.data;
 
 		return (
-			<table>
-				<thead />
-				<tbody>
+			<>
+				<Header />
+				<section className="container">
 					{results.map((user, index) => {
 						return <User key={index} details={user} />;
 					})}
-				</tbody>
-			</table>
+				</section>
+			</>
 		);
 	}
 }

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import { users } from './data';
-import SearchBar from './components/SearchBar/SearchBar';
-import UserList from './components/UserList/UserList';
+import SearchBar from './components/SearchBar';
+import UserList from './components/UserList';
 
 class App extends Component {
 	constructor(props) {
@@ -16,9 +17,7 @@ class App extends Component {
 		return (
 			<>
 				<SearchBar />
-				<section>
-					<UserList data={this.state.data} />
-				</section>
+				<UserList data={this.state.data} />
 			</>
 		);
 	}
