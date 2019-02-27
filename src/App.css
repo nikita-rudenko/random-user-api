@@ -17,6 +17,18 @@ img {
 	color: var(--color-black);
 }
 
+.user__body--show {
+	max-height: 20rem;
+	transition: all 0.5s ease;
+	overflow: hidden;
+}
+
+.user__body--hide {
+	max-height: 0;
+	transition: all 0.5s ease;
+	overflow: hidden;
+}
+
 .user:nth-child(odd) {
 	background: var(--color-white);
 }

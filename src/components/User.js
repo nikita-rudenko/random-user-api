@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 
 export default class User extends Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			height: 0
-		};
-	}
 	render() {
+		const { activeTab, index, activateTab } = this.props;
+		const isActive = activeTab === index;
+
 		const {
 			gender,
 			name,
@@ -29,7 +25,7 @@ export default class User extends Component {
 		const { medium, large } = picture;
 
 		return (
-			<div className="user rounded">
+			<div className="user rounded" onClick={activateTab}>
 				<div className="user__head container">
 					<div className="row">
 						<div className="head__image text-center col-1">
@@ -40,12 +36,14 @@ export default class User extends Component {
 						<div className="head__detail col-2">{username}</div>
 						<div className="head__detail col-2">{phone}</div>
 						<div className="head__detail col-2">{state}</div>
-						<div className="head__detail text-center col-1">+</div>
+						<div className="head__detail text-center col-1">
+							{isActive ? '-' : '+'}
+						</div>
 					</div>
 				</div>
 
 				<div>
-					<div className="user__body container">
+					<div className={isActive ? 'user__body--show' : 'user__body--hide'}>
 						<div className="row">
 							<h3 className="body__name">
 								{first} <span>{gender === 'male' ? 'M' : 'F'}</span>
