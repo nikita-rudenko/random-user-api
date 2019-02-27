@@ -31,13 +31,13 @@ export default class User extends Component {
 						<div className="head__image text-center col-1">
 							<img src={medium} alt="avatar" />
 						</div>
-						<div className="head__detail col-2">{last}</div>
-						<div className="head__detail col-2">{first}</div>
+						<div className="head__detail col-2 text-capitalize">{last}</div>
+						<div className="head__detail col-2 text-capitalize">{first}</div>
 						<div className="head__detail col-2">{username}</div>
 						<div className="head__detail col-2">{phone}</div>
-						<div className="head__detail col-2">{state}</div>
+						<div className="head__detail col-2 text-capitalize">{state}</div>
 						<div className="head__detail text-center col-1">
-							{isActive ? '-' : '+'}
+							<i className={isActive ? 'fas fa-minus' : 'fas fa-plus'} />
 						</div>
 					</div>
 				</div>
@@ -45,8 +45,16 @@ export default class User extends Component {
 				<div>
 					<div className={isActive ? 'user__body--show' : 'user__body--hide'}>
 						<div className="row">
-							<h3 className="body__name">
-								{first} <span>{gender === 'male' ? 'M' : 'F'}</span>
+							<h3 className="body__name text-capitalize">
+								{first}
+								{'  '}
+								<span>
+									<i
+										className={
+											gender === 'male' ? 'fas fa-male' : 'fas fa-female'
+										}
+									/>
+								</span>
 							</h3>
 						</div>
 						<div className="row">
@@ -64,10 +72,10 @@ export default class User extends Component {
 								</div>
 							</div>
 							<div className="body__detail col-3">
-								<div>
+								<div className="text-capitalize">
 									<strong>Address</strong> {street}
 								</div>
-								<div>
+								<div className="text-capitalize">
 									<strong>City</strong> {city}
 								</div>
 								<div>
