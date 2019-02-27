@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
 
-export default class Header extends Component {
+export default class SearchBar extends Component {
 	render() {
 		return (
-			<div className="container">
-				<div className="container bg-dark">
-					<div className="header row">
-						<div className="col-1" />
-						<div className="col-2">Last</div>
-						<div className="col-2">First</div>
-						<div className="col-2">Username</div>
-						<div className="col-2">Phone</div>
-						<div className="col-2">Location</div>
-						<div className="col-1" />
+			<>
+				<div className="header_wrapper">
+					<div className="container pb-5">
+						<div className="row col-12 mx-auto pt-5 text-center">
+							<form className="col-5 float-left">
+								<div className="input-group">
+									<input
+										className="form-control"
+										type="text"
+										name="search"
+										aria-label="Search"
+										placeholder="Search for users"
+									/>
+								</div>
+							</form>
+							<button className="btn btn-info ml-auto">Show chart</button>
+						</div>
 					</div>
 				</div>
-			</div>
+			</>
 		);
 	}
 }

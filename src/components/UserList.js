@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import User from './User';
-import Header from './Header';
+import Categories from './Categories';
 
 export default class UserList extends Component {
 	constructor(props) {
@@ -14,7 +14,7 @@ export default class UserList extends Component {
 
 		return (
 			<>
-				<Header />
+				<Categories />
 				<section className="container">
 					{results.map((user, index) => {
 						return <User key={index} details={user} />;

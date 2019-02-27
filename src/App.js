@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import { users } from './data';
-import SearchBar from './components/SearchBar';
+import Header from './components/Header';
 import UserList from './components/UserList';
 
 class App extends Component {
@@ -16,7 +16,7 @@ class App extends Component {
 	render() {
 		return (
 			<>
-				<SearchBar />
+				<Header />
 				<UserList data={this.state.data} />
 			</>
 		);
