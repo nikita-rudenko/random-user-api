@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class SearchBar extends Component {
 	render() {
-		const { handleSearch } = this.props;
+		const { handleSearch, handleModal } = this.props;
 		return (
 			<>
 				<div className="header_wrapper">
@@ -25,7 +25,7 @@ export default class SearchBar extends Component {
 									/>
 								</div>
 							</form>
-							<button className="btn btn-info ml-auto">
+							<button className="btn btn-info ml-auto" onClick={handleModal}>
 								Show chart <i className="fas fa-chart-pie" />
 							</button>
 						</div>

@@ -15,7 +15,8 @@ class App extends Component {
 			data: [],
 			searchData: null,
 			url: `https://randomuser.me/api?results=50`,
-			isLoading: false
+			isLoading: false,
+			isModalOpen: false
 		};
 	}
 
@@ -49,21 +50,30 @@ class App extends Component {
 		});
 	};
 
+	handleModal = e => {
+		this.setState({
+			isModalOpen: !this.state.isModalOpen
+		});
+	};
+
 	componentDidMount = () => {
 		this.getRandomUsers();
 	};
 
 	render() {
-		const { data, searchData, isLoading } = this.state;
+		const { data, searchData, isLoading, isModalOpen } = this.state;
 		return (
 			<>
-				<Header handleSearch={this.handleSearch} />
-				{isLoading === true ? (
+				<Header
+					handleSearch={this.handleSearch}
+					handleModal={this.handleModal}
+				/>
+				{isLoading ? (
 					<Loading />
 				) : (
 					<UserList data={searchData ? searchData : data} />
 				)}
-				<Modal />
+				{isModalOpen ? <Modal handleModal={this.handleModal} /> : null}
 			</>
 		);
 	}
