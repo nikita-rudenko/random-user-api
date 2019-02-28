@@ -9,16 +9,23 @@ export default class SearchBar extends Component {
 						<div className="row col-12 mx-auto pt-5 text-center">
 							<form className="col-5 float-left">
 								<div className="input-group">
+									<div className="input-group-prepend">
+										<div className="input-group-text bg-white">
+											<i className="fa fa-search" />
+										</div>
+									</div>
 									<input
-										className="form-control"
+										className="form-control border-left-0"
 										type="text"
 										name="search"
 										aria-label="Search"
-										placeholder="Search for users"
+										placeholder="Search for users..."
 									/>
 								</div>
 							</form>
-							<button className="btn btn-info ml-auto">Show chart</button>
+							<button className="btn btn-info ml-auto">
+								Show chart <i className="fas fa-chart-pie" />
+							</button>
 						</div>
 					</div>
 				</div>
