@@ -20,23 +20,29 @@ export default class UserList extends Component {
 	render() {
 		const results = this.props.data;
 		const { activeTab } = this.state;
+		console.log(results);
 
 		return (
 			<>
 				<Categories />
+
 				<section className="container">
-					{results.map((user, index) => {
-						index = index + 1;
-						return (
-							<User
-								key={index}
-								details={user}
-								activeTab={activeTab}
-								index={index}
-								activateTab={this.activateTab.bind(null, index)}
-							/>
-						);
-					})}
+					{results.length === 0 ? (
+						<h3 className="text-center pt-4">No results.</h3>
+					) : (
+						results.map((user, index) => {
+							index = index + 1;
+							return (
+								<User
+									key={index}
+									details={user}
+									activeTab={activeTab}
+									index={index}
+									activateTab={this.activateTab.bind(null, index)}
+								/>
+							);
+						})
+					)}
 				</section>
 			</>
 		);
