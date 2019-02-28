@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 export default class SearchBar extends Component {
 	render() {
+		const { handleSearch } = this.props;
 		return (
 			<>
 				<div className="header_wrapper">
@@ -20,6 +21,7 @@ export default class SearchBar extends Component {
 										name="search"
 										aria-label="Search"
 										placeholder="Search for users..."
+										onChange={handleSearch}
 									/>
 								</div>
 							</form>

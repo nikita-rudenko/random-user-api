@@ -12,6 +12,7 @@ class App extends Component {
 
 		this.state = {
 			data: [],
+			searchData: null,
 			url: `https://randomuser.me/api?results=50`,
 			isLoading: false
 		};
@@ -24,35 +25,42 @@ class App extends Component {
 		try {
 			const data = await fetch(this.state.url);
 			const jsonData = await data.json();
-			console.log(jsonData);
 
-			if (jsonData.length === 0) {
-				this.setState({
-					isLoading: false
-				});
-			} else {
-				this.setState({
-					data: jsonData.results,
-					isLoading: false
-				});
-			}
+			this.setState({
+				data: jsonData.results,
+				isLoading: false
+			});
 		} catch (error) {
 			console.log(error);
 		}
 	}
+
+	handleSearch = e => {
+		const searchQuery = e.target.value;
+
+		const { data } = this.state;
+		const searchData = data.filter(user =>
+			user.name.first.includes(searchQuery)
+		);
+
+		this.setState({
+			searchData
+		});
+	};
 
 	componentDidMount = () => {
 		this.getRandomUsers();
 	};
 
 	render() {
+		const { data, searchData, isLoading } = this.state;
 		return (
 			<>
-				<Header />
-				{this.state.isLoading === true ? (
+				<Header handleSearch={this.handleSearch} />
+				{isLoading === true ? (
 					<Loading />
 				) : (
-					<UserList data={this.state.data} />
+					<UserList data={searchData ? searchData : data} />
 				)}
 			</>
 		);
