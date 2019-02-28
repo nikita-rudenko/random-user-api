@@ -4,6 +4,7 @@ import './App.css';
 // import { users } from './data';
 import Header from './components/Header';
 import UserList from './components/UserList';
+import Loading from './components/Loading';
 
 class App extends Component {
 	constructor(props) {
@@ -48,7 +49,11 @@ class App extends Component {
 		return (
 			<>
 				<Header />
-				<UserList data={this.state.data} />
+				{this.state.isLoading === true ? (
+					<Loading />
+				) : (
+					<UserList data={this.state.data} />
+				)}
 			</>
 		);
 	}
