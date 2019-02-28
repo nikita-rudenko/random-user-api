@@ -3,7 +3,9 @@ import Chart from './Chart';
 
 export default class Modal extends Component {
 	render() {
-		const { handleModal } = this.props;
+		const { handleModal, genders } = this.props;
+		const noData = genders.male || genders.female;
+
 		return (
 			<div id="modalWrapper">
 				<div className="container">
@@ -16,7 +18,7 @@ export default class Modal extends Component {
 							Close
 						</button>
 						<h1 className="col-8 mx-auto p-2">Gender of users</h1>
-						<Chart />
+						{noData ? <Chart genders={genders} /> : <h2>No data</h2>}
 						<div className="pt-4">
 							<span>
 								<i className=" modal__icon modal__icon--male fas fa-male" />{' '}

@@ -20,7 +20,6 @@ export default class UserList extends Component {
 	render() {
 		const results = this.props.data;
 		const { activeTab } = this.state;
-		console.log(results);
 
 		return (
 			<>

@@ -14,6 +14,7 @@ class App extends Component {
 		this.state = {
 			data: [],
 			searchData: null,
+			genders: null,
 			url: `https://randomuser.me/api?results=50`,
 			isLoading: false,
 			isModalOpen: false
@@ -28,10 +29,17 @@ class App extends Component {
 			const data = await fetch(this.state.url);
 			const jsonData = await data.json();
 
-			this.setState({
-				data: jsonData.results,
-				isLoading: false
-			});
+			this.setState(
+				() => {
+					return {
+						data: jsonData.results,
+						isLoading: false
+					};
+				},
+				() => {
+					this.countGenderRatio();
+				}
+			);
 		} catch (error) {
 			console.log(error);
 		}
@@ -45,23 +53,51 @@ class App extends Component {
 			user.name.first.includes(searchQuery)
 		);
 
-		this.setState({
-			searchData
-		});
+		this.setState(
+			() => {
+				return { searchData };
+			},
+			() => {
+				this.countGenderRatio();
+			}
+		);
 	};
 
-	handleModal = e => {
+	handleModal = () => {
 		this.setState({
 			isModalOpen: !this.state.isModalOpen
 		});
 	};
+
+	countGenderRatio() {
+		const { searchData, data } = this.state;
+		const userData = searchData ? searchData : data;
+
+		let genders = {
+			female: 0,
+			male: 0
+		};
+
+		for (let key in userData) {
+			const user = userData[key];
+			if (user.gender === 'male') {
+				genders.male = genders.male + 1;
+			} else if (user.gender === 'female') {
+				genders.female = genders.female + 1;
+			}
+		}
+
+		this.setState({
+			genders: genders
+		});
+	}
 
 	componentDidMount = () => {
 		this.getRandomUsers();
 	};
 
 	render() {
-		const { data, searchData, isLoading, isModalOpen } = this.state;
+		const { data, searchData, genders, isLoading, isModalOpen } = this.state;
 		return (
 			<>
 				<Header
@@ -73,7 +109,9 @@ class App extends Component {
 				) : (
 					<UserList data={searchData ? searchData : data} />
 				)}
-				{isModalOpen ? <Modal handleModal={this.handleModal} /> : null}
+				{isModalOpen ? (
+					<Modal genders={genders} handleModal={this.handleModal} />
+				) : null}
 			</>
 		);
 	}
