@@ -2,19 +2,42 @@
 	--color-black: #4a4a4a;
 	--color-white: #f5f5f5;
 	--color-grey: #dadada;
+	--color-blue: #538cc2;
+	--color-arsenic: #424247;
+	--color-red: #d44444;
 }
 
 body {
 	background: var(--color-grey);
 }
 
-img {
-	border-radius: 4rem;
+.categories div {
+	padding: 0.8rem 1rem;
+	color: var(--color-white);
 }
+
+.user-list {
+	margin-top: 0.5rem;
+	margin-bottom: 5rem;
+}
+
+/* USER */
 
 .user {
 	padding-bottom: 1rem;
 	color: var(--color-black);
+}
+
+.user:nth-child(odd) {
+	background: var(--color-white);
+}
+
+.user__head {
+	cursor: pointer;
+}
+
+.head__detail {
+	padding: 2rem 1rem;
 }
 
 .user__body--show {
@@ -29,38 +52,18 @@ img {
 	overflow: hidden;
 }
 
-.user:nth-child(odd) {
-	background: var(--color-white);
-}
-
-.categories div {
-	padding: 0.8rem 1rem;
-	color: var(--color-white);
-}
-
-.head__image,
-.body__image {
-	padding: 1rem 1rem;
-}
-
-.head__detail {
-	padding: 2rem 1rem;
-}
-
 .body__detail {
 	padding: 1rem;
 	font-size: 0.9rem;
 }
 
 .body__name {
-	margin: 1rem 10%;
+	margin: 0.5rem 10%;
 }
 
-#modal {
-	background: #fff;
-}
+/* MODAL */
 
-#modalWrapper {
+.overlay {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -73,8 +76,20 @@ img {
 	transition: all 0.1s ease-in-out;
 }
 
+#modal {
+	background: var(--color-white);
+}
+
 .chart {
 	max-width: 50%;
+	min-height: 300px;
+}
+
+.no-chart {
+	min-height: 300px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .modal__icon {
@@ -85,9 +100,41 @@ img {
 }
 
 .modal__icon--male {
-	background: #7cb5ec;
+	background: var(--color-blue);
 }
 
 .modal__icon--female {
-	background: #424247;
+	background: var(--color-arsenic);
+}
+
+/* BUTTONS */
+
+.btn--chart {
+	color: var(--color-white);
+	background: var(--color-blue);
+}
+
+.btn--close {
+	color: var(--color-white);
+	background: var(--color-red);
+}
+
+.btn--chart:hover,
+.btn--chart:focus,
+.btn--close:hover,
+.btn--close:focus {
+	color: var(--color-white);
+	opacity: 0.7;
+}
+
+/* MISC */
+
+.text-title {
+	color: var(--color-black);
+	font-size: 1.6rem;
+}
+
+.avatar {
+	margin: 1rem 0;
+	border-radius: 10rem;
 }

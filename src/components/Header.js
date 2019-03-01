@@ -5,8 +5,8 @@ export default class SearchBar extends Component {
 		const { handleSearch, handleModal } = this.props;
 		return (
 			<>
-				<div className="header_wrapper">
-					<div className="container pb-5">
+				<div className="header-wrapper">
+					<header className="container pb-5">
 						<div className="row col-12 mx-auto pt-5 text-center">
 							<form className="col-5 float-left">
 								<div className="input-group">
@@ -25,11 +25,11 @@ export default class SearchBar extends Component {
 									/>
 								</div>
 							</form>
-							<button className="btn btn-info ml-auto" onClick={handleModal}>
+							<button className="btn btn--chart ml-auto" onClick={handleModal}>
 								Show chart <i className="fas fa-chart-pie" />
 							</button>
 						</div>
-					</div>
+					</header>
 				</div>
 			</>
 		);

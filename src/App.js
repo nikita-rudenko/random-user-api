@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
-// import { users } from './data';
 import Header from './components/Header';
 import UserList from './components/UserList';
 import Loading from './components/Loading';
@@ -15,7 +14,7 @@ class App extends Component {
 			data: [],
 			searchData: null,
 			genders: null,
-			url: `https://randomuser.me/api?results=50`,
+			url: `https://randomuser.me/api?results=51`,
 			isLoading: false,
 			isModalOpen: false
 		};
@@ -37,7 +36,7 @@ class App extends Component {
 					};
 				},
 				() => {
-					this.countGenderRatio();
+					this.countGenderGenders();
 				}
 			);
 		} catch (error) {
@@ -58,7 +57,7 @@ class App extends Component {
 				return { searchData };
 			},
 			() => {
-				this.countGenderRatio();
+				this.countGenderGenders();
 			}
 		);
 	};
@@ -69,7 +68,7 @@ class App extends Component {
 		});
 	};
 
-	countGenderRatio() {
+	countGenderGenders() {
 		const { searchData, data } = this.state;
 		const userData = searchData ? searchData : data;
 

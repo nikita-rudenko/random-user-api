@@ -7,18 +7,24 @@ export default class Modal extends Component {
 		const noData = genders.male || genders.female;
 
 		return (
-			<div id="modalWrapper">
-				<div className="container">
+			<div className="overlay">
+				<div className="modal-wrapper container">
 					<div
 						id="modal"
-						className="col-8 mx-auto py-4 px-3 text-center rounded bg-white">
+						className="col-6 mx-auto py-4 px-3 text-center rounded">
 						<button
-							className="float-right btn btn-danger"
+							className="float-right btn btn--close"
 							onClick={handleModal}>
 							Close
 						</button>
-						<h1 className="col-8 mx-auto p-2">Gender of users</h1>
-						{noData ? <Chart genders={genders} /> : <h2>No data</h2>}
+						<h2 className="col-8 mx-auto mb-4">Gender of users</h2>
+						{noData ? (
+							<Chart genders={genders} />
+						) : (
+							<div className="no-chart text-title">
+								No data for your current search
+							</div>
+						)}
 						<div className="pt-4">
 							<span>
 								<i className=" modal__icon modal__icon--male fas fa-male" />{' '}

@@ -25,9 +25,9 @@ export default class UserList extends Component {
 			<>
 				<Categories />
 
-				<section className="container">
+				<section className="user-list container">
 					{results.length === 0 ? (
-						<h3 className="text-center pt-4">No results.</h3>
+						<div className="text-title text-center pt-4">No results</div>
 					) : (
 						results.map((user, index) => {
 							index = index + 1;

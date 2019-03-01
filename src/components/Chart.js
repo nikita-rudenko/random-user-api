@@ -20,7 +20,7 @@ export default class Chart extends Component {
 				labelPosition={50}
 				labelStyle={labelOptions}
 				data={[
-					{ title: 'Male', value: male, color: '#7CB5EC' },
+					{ title: 'Male', value: male, color: '#538cc2' },
 					{ title: 'Female', value: female, color: '#424247' }
 				]}
 			/>

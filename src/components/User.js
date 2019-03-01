@@ -17,6 +17,7 @@ export default class User extends Component {
 			cell,
 			picture
 		} = this.props.details;
+
 		const { last, first } = name;
 		const { street, city, state, postcode } = location;
 		const { username } = login;
@@ -25,11 +26,11 @@ export default class User extends Component {
 		const { medium, large } = picture;
 
 		return (
-			<div className="user rounded" onClick={activateTab}>
-				<div className="user__head container">
+			<div className="user rounded">
+				<div className="user__head container" onClick={activateTab}>
 					<div className="row">
-						<div className="head__image text-center col-1">
-							<img src={medium} alt="avatar" />
+						<div className="head__avatar text-center col-1">
+							<img className="avatar" src={medium} alt="Avatar." />
 						</div>
 						<div className="head__detail col-2 text-capitalize">{last}</div>
 						<div className="head__detail col-2 text-capitalize">{first}</div>
@@ -45,7 +46,7 @@ export default class User extends Component {
 				<div>
 					<div className={isActive ? 'user__body--show' : 'user__body--hide'}>
 						<div className="row">
-							<h3 className="body__name text-capitalize">
+							<div className="body__name text-title text-capitalize">
 								{first}
 								{'  '}
 								<span>
@@ -55,46 +56,46 @@ export default class User extends Component {
 										}
 									/>
 								</span>
-							</h3>
+							</div>
 						</div>
 						<div className="row">
 							<div className="body__detail col-1" />
 							<div className="body__detail col-3">
 								<div>
-									<strong>Username </strong>
+									<b>Username </b>
 									{username}
 								</div>
 								<div>
-									<strong>Registered</strong> {regDate}
+									<b>Registered</b> {regDate}
 								</div>
 								<div>
-									<strong>Email</strong> {email}
+									<b>Email</b> {email}
 								</div>
 							</div>
 							<div className="body__detail col-3">
 								<div className="text-capitalize">
-									<strong>Address</strong> {street}
+									<b>Address</b> {street}
 								</div>
 								<div className="text-capitalize">
-									<strong>City</strong> {city}
+									<b>City</b> {city}
 								</div>
 								<div>
-									<strong>Zip Code </strong> {postcode}
+									<b>Zip Code </b> {postcode}
 								</div>
 							</div>
 							<div className="body__detail col-2">
 								<div>
-									<strong>Birthday</strong> {birthDate}
+									<b>Birthday</b> {birthDate}
 								</div>
 								<div>
-									<strong>Phone</strong> {phone}
+									<b>Phone</b> {phone}
 								</div>
 								<div>
-									<strong>Cell</strong> {cell}
+									<b>Cell</b> {cell}
 								</div>
 							</div>
-							<div className="body__image text-center col-3">
-								<img src={large} alt="" />
+							<div className="text-center col-3">
+								<img className="avatar" src={large} alt="" />
 							</div>
 						</div>
 					</div>
