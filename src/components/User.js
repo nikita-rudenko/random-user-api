@@ -30,7 +30,7 @@ export default class User extends Component {
 				<div className="user__head container" onClick={activateTab}>
 					<div className="row">
 						<div className="head__avatar text-center col-1">
-							<img className="avatar" src={medium} alt="Avatar." />
+							<img className="avatar" src={medium} alt="Small avatar." />
 						</div>
 						<div className="head__detail col-2 text-capitalize">{last}</div>
 						<div className="head__detail col-2 text-capitalize">{first}</div>
@@ -95,7 +95,7 @@ export default class User extends Component {
 								</div>
 							</div>
 							<div className="text-center col-3">
-								<img className="avatar" src={large} alt="" />
+								<img className="avatar" src={large} alt="Big avatar." />
 							</div>
 						</div>
 					</div>
